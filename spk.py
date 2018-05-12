@@ -1,4 +1,4 @@
-#! /usr/bin/python
+#! /usr/bin/python3
 """
 Shows basic usage of the Google Calendar API. Creates a Google Calendar API
 service object and outputs a list of the next 10 events on the user's calendar."""

@@ -8,7 +8,7 @@ from apiclient.discovery import build
 from httplib2 import Http
 from oauth2client import file, client, tools
 import datetime
-import pyttsx
+import pyttsx3
 import dateutil.parser
 import sched
 import time
@@ -37,7 +37,7 @@ def call_google_calendar(svr):
 
 def speak_the_string(str_say):
   """ Use the string param to send to the py ttsx engine """
-  engine = pyttsx.init()
+  engine = pyttsx3.init()
   engine.say(str_say)
   engine.runAndWait()
 

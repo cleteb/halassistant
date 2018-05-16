@@ -1,4 +1,8 @@
-#! /usr/bin/python3
+#! /usr/bin/python2.7
+
+from oauth2client import file, client, tools
+from apiclient.discovery import build
+from httplib2 import Http
 
 
 """#####################################################"""
@@ -6,7 +10,7 @@ def setup_google_calendar():
     """ Setup the Calendar API """
     scopes = 'https://www.googleapis.com/auth/calendar.readonly'
     try:
-        store = file.Storage('credentials.json')
+        store = file.Storage("/home/clete/Code/HalAssistantOnGitHub/halassistant/hal_calendar/credentials.json")
         creds = store.get()
     finally:
         if not creds or creds.invalid:
@@ -57,3 +61,11 @@ def calendar_loop(sc):
     SCHED.enter(20, 1, calendar_loop, (sc,))
 
 """#####################################################"""
+
+def main():
+
+    """ Define a main() function runs everything """
+    setup_google_calendar()
+    
+if __name__ == "__main__":
+    main()

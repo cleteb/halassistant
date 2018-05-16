@@ -1,23 +1,18 @@
-#! /usr/bin/python3
-"""
-Shows basic usage of the Google Calendar API. Creates a Google Calendar API
-service object and outputs a list of the next 10 events on the user's calendar."""
-
+#! /usr/bin/python2.7
 from __future__ import print_function
-from apiclient.discovery import build
-from httplib2 import Http
-from oauth2client import file, client, tools
 import datetime
 import pyttsx3
 import dateutil.parser
 import sched
 import time
+import hal_mail.hal_mail
+import hal_calendar.hal_calendar
+"""
+Shows basic usage of the Google Calendar API. Creates a Google Calendar API
+service object and outputs a list of the next 10 events on the user's calendar."""
 """#####################################################"""
-import hal_mail
 
-print(dir(hal_mail))
-
-SCHED = sched.scheduler(time.time, time.sleep)
+#SCHED = sched.scheduler(time.time, time.sleep)
 
 """#####################################################"""
 def speak_the_string(str_say):
@@ -40,11 +35,10 @@ def run_service():
 def main():
 
     """ Define a main() function runs everything """
-
     #run_service()
     hal_mail.hal_mail.setup_google_gmail()
-    #call_google_gmail()
 
+"""#####################################################"""
 """#####################################################"""
 
 if __name__ == "__main__":

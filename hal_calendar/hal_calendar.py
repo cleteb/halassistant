@@ -41,19 +41,13 @@ def calendar_loop(sc, halassistant ):
         print('No upcoming events found.')
     for event in events:
         start = event['start'].get('dateTime', event['start'].get('date'))
-        #print(dateutil.parser.parse('2008-09-03T20:56:35.450686Z'))
-        #print(dateutil.parser.parse(start).date().strftime("%A"))
-        #print(start)
+        
         str_say = "You have an appointment on"
         str_say = str_say + " " + dateutil.parser.parse(start).strftime("%A") +","
         str_say = str_say + " " + dateutil.parser.parse(start).strftime("%B")
         str_say = str_say + " " + dateutil.parser.parse(start).strftime("%d")
         str_say = str_say + ", at " + event['summary']
-        #print("You have an appointment on")
-        #print(dateutil.parser.parse(start).strftime("%A"))
-        #print(dateutil.parser.parse(start).strftime("%B"))
-        #print(dateutil.parser.parse(start).strftime("%d"))
-        #print("@ " + event['summary'])
+        
         print(str_say)
         speak_the_string(str_say)
 

@@ -25,17 +25,9 @@ class Hal_Mail():
     
     def call_google_gmail(self, svr_mail):
         # Call the Gmail API
-        #results_mail = svr_mail.users().labels().list(userId='cleteb@gmail.com').execute()
-        results_mail = svr_mail.users().messages().list(userId='cleteb@gmail.com', maxResults=3, q='from:millerk9@michigan.gov').execute()
         
-        #labels_mail = results_mail.get('labels', [])
-        #if not labels_mail:
-        #    print('No labels found.')
-        #else:
-        #    print('Labels:')
-        #    for label in labels_mail:
-        #        print(label['name'])
-        
+        results_mail = svr_mail.users().messages().list(userId='me', maxResults=3, q='from:jobs@dice.com').execute()
+                
         emails_mail = results_mail.get('messages', [])
         if not emails_mail:
             print('No emails found.')

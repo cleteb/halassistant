@@ -4,9 +4,8 @@ from oauth2client import file, client, tools
 from apiclient.discovery import build
 from httplib2 import Http
 
-
 """#####################################################"""
-def setup_google_calendar():
+def get_google_calendar():
     """ Setup the Calendar API """
     scopes = 'https://www.googleapis.com/auth/calendar.readonly'
     try:
@@ -28,10 +27,10 @@ def call_google_calendar(svr):
                                       orderBy='startTime').execute()
     return events_result
 
-def calendar_loop(sc):
+def calendar_loop(sc, halassistant ):
 
     # Setup the Calendar API and get the service object
-    svr = setup_google_calendar()
+    svr = get_google_calendar()
 
     # Call the Calendar API and get the event results list
     evts_rslt = call_google_calendar(svr)
